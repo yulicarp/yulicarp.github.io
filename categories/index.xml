@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on yu - bioinfo</title>
+    <link>https://yulicarp.github.io/categories/</link>
+    <description>Recent content in Categories on yu - bioinfo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Dec 2020 15:46:11 +0800</lastBuildDate><atom:link href="https://yulicarp.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://yulicarp.github.io/categories/linux/</link>
+      <pubDate>Sat, 05 Dec 2020 15:46:11 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>course_homework</title>
+      <link>https://yulicarp.github.io/categories/course_homework/</link>
+      <pubDate>Sat, 28 Nov 2020 16:50:45 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/course_homework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>思考</title>
+      <link>https://yulicarp.github.io/categories/%E6%80%9D%E8%80%83/</link>
+      <pubDate>Fri, 27 Nov 2020 20:52:16 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/%E6%80%9D%E8%80%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software</title>
+      <link>https://yulicarp.github.io/categories/software/</link>
+      <pubDate>Sat, 21 Nov 2020 10:57:40 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data file formats</title>
+      <link>https://yulicarp.github.io/categories/data-file-formats/</link>
+      <pubDate>Thu, 19 Nov 2020 10:36:32 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/data-file-formats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://yulicarp.github.io/categories/python/</link>
+      <pubDate>Thu, 12 Nov 2020 21:31:46 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://yulicarp.github.io/categories/docker/</link>
+      <pubDate>Tue, 10 Nov 2020 09:37:52 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

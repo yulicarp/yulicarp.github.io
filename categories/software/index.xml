@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software on yu - bioinfo</title>
+    <link>https://yulicarp.github.io/categories/software/</link>
+    <description>Recent content in software on yu - bioinfo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Nov 2020 10:57:40 +0800</lastBuildDate><atom:link href="https://yulicarp.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个包管理器：conda</title>
+      <link>https://yulicarp.github.io/post/conda/</link>
+      <pubDate>Sat, 21 Nov 2020 10:57:40 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/post/conda/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
