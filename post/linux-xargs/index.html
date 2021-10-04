@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux | 4 xargs命令 - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="xargs" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/linux-xargs/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux | 4 xargs命令" />
+<meta property="og:description" content="xargs" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/linux-xargs/" />
+<meta property="article:published_time" content="2020-12-05T11:13:50+08:00" />
+<meta property="article:modified_time" content="2020-12-05T11:13:50+08:00" />
+<meta itemprop="name" content="Linux | 4 xargs命令">
+<meta itemprop="description" content="xargs">
+<meta itemprop="datePublished" content="2020-12-05T11:13:50+08:00" />
+<meta itemprop="dateModified" content="2020-12-05T11:13:50+08:00" />
+<meta itemprop="wordCount" content="723">
+
+
+
+<meta itemprop="keywords" content="linux,shell," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux | 4 xargs命令"/>
+<meta name="twitter:description" content="xargs"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux | 4 xargs命令</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-05 11:13 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> linux </a>
+            </div>
+          <span class="more-meta"> 约 723 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#语法">语法</a></li>
+    <li><a href="#常用参数">常用参数</a>
+      <ul>
+        <li><a href="#-t-在执行参数之前先打印">-t 在执行参数之前先打印</a></li>
+        <li><a href="#-n-限制参数的数量">-n 限制参数的数量</a></li>
+        <li><a href="#-i-i-运行多个命令">-i/-I 运行多个命令</a></li>
+        <li><a href="#-d--delimiter-指定分隔符">-d/&ndash;delimiter 指定分隔符</a></li>
+        <li><a href="#-a-从文件中读取">-a 从文件中读取</a></li>
+        <li><a href="#sh--c">sh -c</a></li>
+      </ul>
+    </li>
+    <li><a href="#与find一起使用">与find一起使用</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="语法">语法</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">xargs [options] [command [initial-arguments]]
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Xargs不会像管道那样，赤裸裸的把好处送到人门前，它会偷偷摸摸的从后院进去，放到命令行参数位置，神不知鬼不觉的就把事情办妥当了.</p>
+</blockquote>
+<p>举个栗子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">cat example.txt 
+<span class="c1">#1 2 3 4 5</span>
+<span class="c1">#6 7</span>
+<span class="c1">#8</span>
+cat example.txt <span class="p">|</span> xargs 
+<span class="c1">#1 2 3 4 5 6 7 8</span>
+<span class="nb">echo</span> <span class="s2">&#34;4567&#34;</span> <span class="p">|</span>xargs <span class="nb">kill</span>
+<span class="nb">echo</span> <span class="s2">&#34;file1 file2 file3&#34;</span> <span class="p">|</span>xargs -n1 touch 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="常用参数">常用参数</h1>
+<h2 id="-t-在执行参数之前先打印">-t 在执行参数之前先打印</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> <span class="s2">&#34;file1 file2 file3&#34;</span><span class="p">|</span>xargs -t touch 
+<span class="c1"># touch file1 file2 file3 </span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="-n-限制参数的数量">-n 限制参数的数量</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> <span class="s2">&#34;file1 file2 file3&#34;</span><span class="p">|</span>xargs -t -n1 touch <span class="c1">#-n1每次只运行1个参数</span>
+<span class="c1"># touch file1 </span>
+<span class="c1"># touch file2 </span>
+<span class="c1"># touch file3</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="-i-i-运行多个命令">-i/-I 运行多个命令</h2>
+<p>在-i或者-I后面可以指定一个传递参数的符号，默认是<code>{}</code>，匹配项会传递相应的参数。</p>
+<p>xargs sh -c表示跳过第一个参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> <span class="s2">&#34;file1 file2 file3&#34;</span> <span class="p">|</span>xargs -t -I % sh -c <span class="s1">&#39;touch %;ls -l %&#39;</span>
+ls olddir <span class="p">|</span> xargs -i  mv olddir/<span class="o">{}</span> newdir/<span class="o">{}</span> 
+find . -type f -name <span class="s2">&#34;*.txt&#34;</span> <span class="p">|</span> xargs -i  mv <span class="o">{}</span> newdir/<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="-d--delimiter-指定分隔符">-d/&ndash;delimiter 指定分隔符</h2>
+<p>默认使用空白分隔符</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> -n file1#file2#file3 <span class="p">|</span>xargs -d <span class="se">\#</span> -t touch
+<span class="c1"># touch file1 file2 file3 </span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="-a-从文件中读取">-a 从文件中读取</h2>
+<p>-L 1表示每次读取一行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">cat ip.txt
+<span class="c1">#114.114.114.114</span>
+<span class="c1">#www.linuxprobe.com</span>
+<span class="c1">#202.102.128.68</span>
+xargs -a ip.txt -t -L <span class="m">1</span> ping -c -1 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="sh--c">sh -c</h2>
+<p>可以调用子shell来执行命令行脚本。它可以与 xargs 结合解决多次替换的问
+题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ls *.sh <span class="p">|</span> xargs -I <span class="o">{}</span>  sh -c <span class="s2">&#34;echo -ne &#39;\n {}: &#39;;grep sleep {}&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="与find一起使用">与find一起使用</h1>
+<p>find的输出通过管道输出给xargs，由后者执行-exec参数无法处理的复杂操作。</p>
+<p>因为xargs识别字符段的标识是空格或者换行符，所以如果一个文件名里有空格或者换行符，xargs就会把它识别成两个字符串，自然就出错了。</p>
+<p>当文件名称具有换行符和特殊字符应使用，find的-print0参数（空字符（ &lsquo;\0&rsquo; ）作为分隔符的输出，然后将其作为xargs 命令的输入），同时配合xargs的-0或&ndash;null来使用，保证文件名的完整性。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">find . -type f -print0 <span class="p">|</span>xargs -0 tar -czvf logs.tar.gz
+find . -type f -name <span class="s2">&#34;*.txt&#34;</span> -print0<span class="p">|</span> xargs -0 ls -l
+</code></pre></td></tr></table>
+</div>
+</div><p>Examples:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#删除大量的文件</span>
+find ~ -name ‘*.log<span class="err">&#39;</span> -print0 <span class="p">|</span> xargs -0 rm -f
+<span class="c1">#下载链接</span>
+cat url-list.txt <span class="p">|</span>xargs wget -c
+<span class="c1">#查找所有的jpg文件，并压缩它</span>
+find / -name *.jpg -type f -print <span class="p">|</span> xargs tar -cvzf images.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-12-05 11:13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/shell/">shell</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/linux-which-whereis-locate-find%E6%AF%94%E8%BE%83/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux | 5 which-whereis-locate-find命令比较</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020course-hw-2/">
+            <span class="next-text nav-default">2020course hw-2</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

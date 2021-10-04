@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Data File Formats | gff and gtf - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="gff and gtf" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/data-file-formatsgff-and-gtf/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Data File Formats | gff and gtf" />
+<meta property="og:description" content="gff and gtf" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/data-file-formatsgff-and-gtf/" />
+<meta property="article:published_time" content="2020-11-15T15:41:53+08:00" />
+<meta property="article:modified_time" content="2020-11-15T15:41:53+08:00" />
+<meta itemprop="name" content="Data File Formats | gff and gtf">
+<meta itemprop="description" content="gff and gtf">
+<meta itemprop="datePublished" content="2020-11-15T15:41:53+08:00" />
+<meta itemprop="dateModified" content="2020-11-15T15:41:53+08:00" />
+<meta itemprop="wordCount" content="1419">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data File Formats | gff and gtf"/>
+<meta name="twitter:description" content="gff and gtf"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Data File Formats | gff and gtf</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-15 15:41 </span>
+        <div class="post-category">
+            <a href="/categories/data-file-formats/"> data file formats </a>
+            </div>
+          <span class="more-meta"> 约 1419 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#gff">GFF</a></li>
+    <li><a href="#gtf">GTF</a></li>
+    <li><a href="#gff-vs-gtf">GFF vs GTF</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="gff">GFF</h1>
+<p>GFF (General Feature Format)，用来描述基因组特征的文件，我们现在主要使用的gff3 version。</p>
+<p>GFF文件是由<code>tab</code>键分割的，具有九列的文件。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.<code> Seqid</code></td>
+<td>序列的名称(chromosone or scaffold)。</td>
+</tr>
+<tr>
+<td>2. <code>source</code></td>
+<td>注释的来源，未知用<code>.</code>代替，一般指的是产生此gff3文件的软件方法。</td>
+</tr>
+<tr>
+<td>3.<code>feature type</code></td>
+<td>类型，与gtf相比，相对自由，建议使用sequence ontology的惯例名称。</td>
+</tr>
+<tr>
+<td>4. <code>start</code></td>
+<td>开始位点，从1开始计数（bed文件从0开始）。</td>
+</tr>
+<tr>
+<td>5. <code>end</code></td>
+<td>终止位点。</td>
+</tr>
+<tr>
+<td>6. <code>score</code></td>
+<td>得分，对于一些可量化的属性，在此设置一个数值以表示程度的不同。如果为空，可以用<code>.</code>代替。</td>
+</tr>
+<tr>
+<td>7.<code> strand</code></td>
+<td>“＋”表示正链，“－”表示负链，“.”表示不需要指定正负链。</td>
+</tr>
+<tr>
+<td>8. <code>phase</code></td>
+<td>对于编码蛋白质的CDS来说，本列指定下一个密码子开始的位置。可以是0、1或2，表示到达下一个密码子需要跳过的碱基个数。</td>
+</tr>
+<tr>
+<td>9. <code>attributes</code></td>
+<td>一个包含众多属性的列表，格式为“标签＝值”（tag=value），不同属性之间用<code>;</code>相隔。<code>ID</code>: gff中序列的唯一标识，用于属性分类。<code>Name</code>: 指定属性的名称。展示给用户的就是该属性。<code>Alias</code>: 名称的代称或其他，当存在其他名称时使用该属性。<code>Note</code>: 描述性的一些说明。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">##gff-version 3
+YL_Chr01    EVM gene    6582    7082    .   +   .   ID=YL_Chr01G000010
+YL_Chr01    EVM mRNA    6582    7082    .   +   .   ID=YL_Chr01G000010.1;Parent=YL_Chr01G000010
+YL_Chr01    EVM exon    6582    6648    .   +   .   Parent=YL_Chr01G000010.1;
+YL_Chr01    EVM CDS     6582    6648    .   +   0   Parent=YL_Chr01G000010.1;
+YL_Chr01    EVM exon    6829    7082    .   +   .   Parent=YL_Chr01G000010.1;
+YL_Chr01    EVM CDS     6829    7082    .   +   2   Parent=YL_Chr01G000010.1;
+YL_Chr01    EVM gene    24963   25235   .   +   .   ID=YL_Chr01G000020
+YL_Chr01    EVM mRNA    24963   25235   .   +   .   ID=YL_Chr01G000020.1;Parent=YL_Chr01G000020
+YL_Chr01    EVM exon    24963   25235   .   +   .   Parent=YL_Chr01G000020.1;
+YL_Chr01    EVM CDS     24963   25235   .   +   .   Parent=YL_Chr01G000020.1;
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="gtf">GTF</h1>
+<p>GTF (Gene Transfer Format)，主要用于对基因的注释，我们现在主要使用的GTF2 version。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. <code>Seqid</code></td>
+<td>代表序列的ID，一般为染色体的ID</td>
+</tr>
+<tr>
+<td>2. <code>source</code></td>
+<td>可以是数据库的名称，也可以是预测软件的名称，也可以为空用<code>.</code>填充，eg.Refseq数据库，GeneScan软件。</td>
+</tr>
+<tr>
+<td>3. <code>feature type</code></td>
+<td>有gene、transcript、exon、5’UTR、CDS、start_codon、stop_codon、3‘UTR</td>
+</tr>
+<tr>
+<td>4. <code>start</code></td>
+<td>区间的起始位置</td>
+</tr>
+<tr>
+<td>5. <code>end</code></td>
+<td>区间的终止位置</td>
+</tr>
+<tr>
+<td>6. <code>score</code></td>
+<td>软件提供了统计值，如果没有，就用<code>.</code>填充</td>
+</tr>
+<tr>
+<td>7. <code>strand</code></td>
+<td>代表正负链的信息, <code>+</code>表示正链，<code>-</code>表示负链，<code>?</code>表示不清楚正负链的信息，当正负链信息没有意义时，可以用<code>.</code>填充</td>
+</tr>
+<tr>
+<td>8. <code>phase</code></td>
+<td>当描述的是CDS区间信息时，需要指定翻译时开始的位置，取值范围有0,1,2两种</td>
+</tr>
+<tr>
+<td>9. <code>attributes</code></td>
+<td>每种属性写法为<code>key value</code>, 注意和gff中<code>key=value</code>有所区别，而且必须有<code>gene_id</code>和<code>transcript_id</code>这两个属性， 多个属性用分号分隔。</td>
+</tr>
+</tbody>
+</table>
+<p>Non-coding tanspcript: gene，transcipt，exon</p>
+<p>protein-coding transcipt：gene，transcipt，exon，5’UTR，CDS，start_codon，stop_codon，3‘UTR</p>
+<p><strong>attributes</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">gene_id &#34;Em:U62317.C22.6.mRNA&#34;; transcript_id &#34;Em:U62317.C22.6.mRNA&#34;; exon_number 1
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>gene</p>
+<ul>
+<li>gene_id：Ensembl数据库中的基因ID以<code>ENSG</code>作为前缀</li>
+<li>gene_version：基因ID的版本号，用于区分不同版本</li>
+<li>gene_name：的是基因的symbol, 和NCBI数据库中的gene_symbol一致</li>
+<li>gene_source：来源</li>
+<li>gene_biotype：基因类型</li>
+</ul>
+</li>
+<li>
+<p>transcript</p>
+<ul>
+<li>gene的基础上，增加了以下</li>
+<li>transcript_id</li>
+<li>transcript_version</li>
+<li>transcript_name</li>
+<li>transcript_source</li>
+<li>transcript_biotype</li>
+</ul>
+</li>
+<li>
+<p>exon</p>
+<ul>
+<li>exon_number</li>
+<li>exon_id</li>
+<li>exon_version</li>
+</ul>
+</li>
+</ul>
+<h1 id="gff-vs-gtf">GFF vs GTF</h1>
+<ul>
+<li><code> GFF</code>全称为general feature format，这种格式主要是用来<code>注释基因组</code>。</li>
+<li><code>GTF</code>全称为gene transfer format，主要是用来对<code>基因</code>进行注释。</li>
+<li><code>GTF</code>前8个字段与<code>GFF</code>基本相同，第9个字段已扩展为属性列表。每个属性由一个类型/值对组成。属性必须以分号结束，并且与后面的任何属性之间只隔一个空格。</li>
+</ul>
+<p>目前两种文件可以方便的<strong>相互转化</strong>:使用<code>gffread</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">gffread</span>  <span class="nt">YL</span><span class="p">.</span><span class="nc">gff</span> <span class="nt">-T</span> <span class="nt">-o</span> <span class="nt">li</span><span class="p">.</span><span class="nc">gtf</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="http://www.genome.ucsc.edu/FAQ/FAQformat.html#format3">ucsc</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-15 15:41
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/data-file-format-fasta-and-fastq/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Data File Formats | fasta and fastq</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/linux-3-shell_bash/">
+            <span class="next-text nav-default">Linux | 3 Shell_bash</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

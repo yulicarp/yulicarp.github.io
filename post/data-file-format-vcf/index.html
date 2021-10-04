@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Data File Formats | vcf - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="vcf" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/data-file-format-vcf/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Data File Formats | vcf" />
+<meta property="og:description" content="vcf" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/data-file-format-vcf/" />
+<meta property="article:published_time" content="2020-11-19T10:36:32+08:00" />
+<meta property="article:modified_time" content="2020-11-19T10:36:32+08:00" />
+<meta itemprop="name" content="Data File Formats | vcf">
+<meta itemprop="description" content="vcf">
+<meta itemprop="datePublished" content="2020-11-19T10:36:32+08:00" />
+<meta itemprop="dateModified" content="2020-11-19T10:36:32+08:00" />
+<meta itemprop="wordCount" content="3490">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data File Formats | vcf"/>
+<meta name="twitter:description" content="vcf"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Data File Formats | vcf</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-19 10:36 </span>
+        <div class="post-category">
+            <a href="/categories/data-file-formats/"> data file formats </a>
+            </div>
+          <span class="more-meta"> 约 3490 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#vcf">VCF</a>
+      <ul>
+        <li><a href="#header">header</a></li>
+        <li><a href="#record">record</a></li>
+        <li><a href="#8-info">8. INFO</a>
+          <ul>
+            <li><a href="#9-format">9. FORMAT</a></li>
+          </ul>
+        </li>
+        <li><a href="#gvcf">gvcf</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="vcf">VCF</h1>
+<p><code>VCF</code> (Variant Call Format)，表示基因组的变异信息，通常为GATK和samtools软件处理得到。</p>
+<p><code>VCF</code>文件由两个部分组成，分为以<code>##</code>开头的注释部分，和没有<code>#</code>的主体部分。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">##fileformat=VCFv4.3
+##fileDate=20090805
+##source=myImputationProgramV3.1
+##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+##contig=&lt;ID=20,length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species=&#34;Homo sapiens&#34;,taxonomy=x&gt;
+##phasing=partial
+##INFO=&lt;ID=NS,Number=1,Type=Integer,Description=&#34;Number of Samples With Data&#34;&gt;
+##INFO=&lt;ID=DP,Number=1,Type=Integer,Description=&#34;Total Depth&#34;&gt;
+##INFO=&lt;ID=AF,Number=A,Type=Float,Description=&#34;Allele Frequency&#34;&gt;
+##INFO=&lt;ID=AA,Number=1,Type=String,Description=&#34;Ancestral Allele&#34;&gt;
+##INFO=&lt;ID=DB,Number=0,Type=Flag,Description=&#34;dbSNP membership, build 129&#34;&gt;
+##INFO=&lt;ID=H2,Number=0,Type=Flag,Description=&#34;HapMap2 membership&#34;&gt;
+##FILTER=&lt;ID=q10,Description=&#34;Quality below 10&#34;&gt;
+##FILTER=&lt;ID=s50,Description=&#34;Less than 50% of samples have data&#34;&gt;
+##FORMAT=&lt;ID=GT,Number=1,Type=String,Description=&#34;Genotype&#34;&gt;
+##FORMAT=&lt;ID=GQ,Number=1,Type=Integer,Description=&#34;Genotype Quality&#34;&gt;
+##FORMAT=&lt;ID=DP,Number=1,Type=Integer,Description=&#34;Read Depth&#34;&gt;
+##FORMAT=&lt;ID=HQ,Number=2,Type=Integer,Description=&#34;Haplotype Quality&#34;&gt;
+#CHROM POS      ID         REF   ALT    QUAL  FILTER   INFO                             FORMAT       NA00001         NA00002          NA00003
+20     14370    rs6054257  G     A      29    PASS    NS=3;DP=14;AF=0.5;DB;H2           GT:GQ:DP:HQ  0|0:48:1:51,51  1|0:48:8:51,51   1/1:43:5:.,.
+20     17330    .          T     A      3     q10     NS=3;DP=11;AF=0.017               GT:GQ:DP:HQ  0|0:49:3:58,50  0|1:3:5:65,3     0/0:41:3
+20     1110696  rs6040355  A     G,T    67    PASS    NS=2;DP=10;AF=0.333,0.667;AA=T;DB GT:GQ:DP:HQ  1|2:21:6:23,27  2|1:2:0:18,2     2/2:35:4
+20     1230237  .          T     .      47    PASS    NS=3;DP=13;AA=T                   GT:GQ:DP:HQ  0|0:54:7:56,60  0|0:48:4:51,51   0/0:61:2
+20     1234567  microsat1  GTC   G,GTCT 50    PASS    NS=3;DP=9;AA=G                    GT:GQ:DP     0/1:35:4        0/2:17:2         1/1:40:3
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="header">header</h2>
+<p>主要是一些针对主体部分的注释信息。</p>
+<ul>
+<li>fileformat</li>
+<li>FILTER</li>
+<li>FORMAT</li>
+<li>INFO</li>
+<li>COMMAND</li>
+<li>&hellip;</li>
+</ul>
+<h2 id="record">record</h2>
+<table>
+<thead>
+<tr>
+<th>fields</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. CHROM</td>
+<td>参考序列的名称</td>
+</tr>
+<tr>
+<td>2. POS</td>
+<td>variant的位；如果INDEl，是INDEL的第一个碱基</td>
+</tr>
+<tr>
+<td>3. ID</td>
+<td>如果dbSNP有该SNP的id，则会提供rsid，没有则用<code>.</code>表示novel variant。</td>
+</tr>
+<tr>
+<td>4. REF</td>
+<td>reference base 参考序列的碱基</td>
+</tr>
+<tr>
+<td>5. ALT</td>
+<td>alternate base 与参考序列比较发生突变的碱基，variant的碱基，若有多个等位，用<code>,</code>分隔开来。</td>
+</tr>
+<tr>
+<td>6. QUAL</td>
+<td>Phred格式(Phred_scaled)的质量值，表示在该位点存在variant的可能性；该值越高，则variant的可能性越大；计算方法：<code>Phred值 = -10 * log (1-p) p</code>为variant存在的概率; 通过计算公式可以看出值为10的表示错误概率为0.1，该位点为variant的概率为90%。</td>
+</tr>
+<tr>
+<td>7. FILTER</td>
+<td>filter status；一般会以多个标准进行filter，如果通过该标准则<code>pass</code>，不通过则以<code>.</code>或<code>filter standard</code>显示。一般在注释会表明清楚filter的标准。</td>
+</tr>
+<tr>
+<td>8. INFO</td>
+<td>variant的详细信息，<code>TAG=VALUE;</code>在下面具体阐述</td>
+</tr>
+<tr>
+<td>9. FORMAT</td>
+<td>variant的格式，例如GT:AD:DP:GQ:PL，与最后一列sample的信息相对应</td>
+</tr>
+<tr>
+<td>10. <em>Samples</em></td>
+<td>与上一列相对应</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-info">8. INFO</h2>
+<p>常用的tag</p>
+<p><code>AC</code>：Allele Count，表示<strong>该等位基因</strong>的<strong>数目</strong>。</p>
+<p><code>AF</code>：Allele Frequency，表示等位基因的<strong>频率</strong>。</p>
+<p><code>AN</code>：Allele Number，表示<strong>等位基因</strong>的数目。</p>
+<blockquote>
+<p>对于1个diploid sample而言：</p>
+<p>基因型 0/1 表示sample为杂合子，Allele数为1(双倍体的sample在该位点只有1个等位基因发生了突变)，Allele的频率为0.5(双倍体的sample在该位点只有50%的等位基因发生了突变)，总的Allele为2；</p>
+<p>基因型 1/1 则表示sample为纯合的，Allele数为2，Allele的频率为1，总的Allele为2。</p>
+</blockquote>
+<p><code>DP</code>：reads覆盖度。是一些reads被过滤掉后的覆盖度。</p>
+<blockquote>
+<p>注意，第八列和第九列都有DP，都表示该位点覆盖深度的信息，但是详细意义可能是不同的，在head里面就可以找到相应信息。</p>
+</blockquote>
+<p><code>MQ</code>：RMS Mapping Quality所有比对到此位点reads的mapping quality的均方根值</p>
+<p><code>QD</code>：Variant Confidence/Quality by Depth对比对上reads的mapping quality求均值。QUAL/DP得到通过深度来评估一个变异的可信度。</p>
+<p><code>FQ</code>：phred值关于所有样本相似的可能性。</p>
+<p><code>FS</code>：FisherStrand，表示使用Fisher’s精确检验来检测strand bias而得到的Fhred格式的p值，<strong>该值越小越好；如果该值较大，表示strand bias（正负链偏移）越严重</strong>，即所检测到的variants位点上，reads比对到正负义链上的比例不均衡。一般进行filter的时候，推荐保留FS&lt;10~20的variants位点。GATK可设定FS参数。</p>
+<p><code>MQRankSum</code>：该值用于衡量alternative allele上reads的mapping quality与reference allele上reads的mapping quality的差异。若该值是负数值，则表明alternative allele比reference allele的reads mapping quality差。进行filter的时候，推荐保留MQRankSum&gt;-1.65~-3.0的variant位点。(Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities)</p>
+<p><code>ReadPosRandSum</code>：Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias.当variants出现在reads尾部的时候，其结果可能不准确。该值用于衡量alternative allele（变异的等位基因）相比于reference allele（参考基因组等位基因），其variant位点是否匹配到reads更靠中部的位置。因此只有基因型是杂合且有一个allele和参考基因组一致的时候，才能计算该值。若<strong>该值为正值，表明和alternative allele相当于reference allele，落来reads更靠中部的位置</strong>；若该值是负值，则表示alternative allele相比于reference allele落在reads更靠尾部的位置。进行filter的之后，推荐保留ReadPosRankSum&gt;-1.65~-3.0的variant位点</p>
+<p><img src="/images/vcf/2.png" alt="2"></p>
+<p>其他可参考 <a href="http://www.bio-info-trainee.com/863.html">http://www.bio-info-trainee.com/863.html</a>、https://www.jianshu.com/p/13f162636164</p>
+<h3 id="9-format">9. FORMAT</h3>
+<p><code>GT</code>：样品的基因型（genotype）。两个数字中间用’/&lsquo;分 开，这两个数字表示双倍体的sample的基因型。0 表示样品中有ref的allele； 1 表示样品中variant的allele； 2表示有第二个variant的allele。</p>
+<blockquote>
+<p>0/0：sample中该位点为纯合位点，和REF的碱基类型一致</p>
+<p>0/1：sample中该位点为杂合突变，有REF和ALT两个基因型（部分碱基和REF碱基类型一致，部分碱基和ALT碱基类型一致）</p>
+<p>1/1：sample中该位点为纯合突变，总体突变类型和ALT碱基类型一致</p>
+<p>1/2：sample中该位点为杂合突变，有ALT1和ALT2两个基因型（部分和ALT1碱基类型一致，部分和ALT2碱基类型一致）</p>
+</blockquote>
+<p><code>AD</code>：Allele Depth，为sample中每一种allele的reads覆盖度,在diploid（二倍体，或可指代多倍型）中则是用逗号分隔的两个值，前者对应REF基因，后者对应ALT基因型。</p>
+<p><code>DP</code>：为sample中该位点的覆盖度，是所支持的两个AD值（逗号前和逗号后）的加和。</p>
+<blockquote>
+<p>1/1:0,175:175—GT:AD(REF),AD(ALT):DP</p>
+</blockquote>
+<p><code>GQ</code>：Genotype Quality，Phred格式（Phred_scaled）的质量值，表示在该位点该基因型存在的可能性；<strong>该值越高，则Genotype的可能性越大</strong>；计算方法：<code>Phred值=-10*log(1-P)</code>，P为基因型存在的概率。（一般在final.snp.vcf文件中，该值为99，为99时，其可能性最大）*。</p>
+<blockquote>
+<p>QUAL和GQ的区别：</p>
+<ul>
+<li>QUAL: tell you how confident there is some kind of variatation at the given site; the variation may be present in one or more samples</li>
+<li>GQ: tell you how confident the genotype which was assignned to a particular sample is correct; euqal to the second lowest PL</li>
+</ul>
+</blockquote>
+<p><code>PL</code>：provieds the likelihoods of the given genotypes，指定的三种基因型的质量值，这三种指定的基因型为（0/0，0/1，1/1），这三种基因型的概率总和为1。<strong>该值越大，表明为该种基因型的可能性越小</strong>；计算方法：<code>Phred值 = -10 * log (p) p</code>为基因型存在的概率。</p>
+<blockquote>
+<p>GT，GQ，PL的关系：</p>
+<ul>
+<li>GT：该位点最有可能的基因型</li>
+<li>GQ：该位点第二有可能的基因型的PL值，GQ反映的是第二个小的基因型的PL值，如果该值超过99，则定位99，因为超过了99，其几乎不能威胁第一个可能的地位。</li>
+<li>PL：不同基因型对应的标准化的可能性</li>
+</ul>
+</blockquote>
+<p><code>DV</code>：高质量的非参考碱基
+<code>SP</code>：phred的p值误差线</p>
+<blockquote>
+<p>处理vcf文件的工具有<a href="https://blog.csdn.net/qq_41211527/article/details/89480891">bcftools</a>，<a href="https://blog.csdn.net/qq_41211527/article/details/86514945">vcftools</a>等</p>
+<p>call snp<a href="https://www.bioinfo-scrounger.com/tags/SNPs/">1</a>、<a href="https://www.jianshu.com/p/938d362fc48d">2</a>的软件有很多，主流的就是使用GATK，但这些软件在用的时候要怎么取舍各有什么特点，我现在还不知道，之后如果用到再去探究。</p>
+</blockquote>
+<h2 id="gvcf">gvcf</h2>
+<p>gvcf文件与vcf文件都是vcf文件，不同之处在于gvcf文件会记录更多的信息，这里更多的信息指的是未突变的位点的覆盖情况。</p>
+<p><strong>多个样本进行合并的时候使用gvcf。</strong></p>
+<p>于GVCF文件会记录所有的点，包括哪些没有突变的点。</p>
+<p>在GVCF模式下，那些没有变异的点会形成一个未变异块，non-var block record。</p>
+<p>多个样本的vcf文件进行合并的时候，需要区分./.和0/0的情况，./.是未检出的基因型，而0/0是未突变的基因型，如果仅使用普通的vcf文件进行合并，那么就无法区分这两种情况，进而对合并结果产生偏差。实际上，我们也可以直接将gvcf文件和vcf文件使用bcftools merge进行merge，但是这样拿到的结果会有偏差，因为vcf文件没有未突变的位点的情况。</p>
+<p><a href="https://blog.csdn.net/qq_35696312/article/details/88343352">参考文章</a></p>
+<p><img src="/images/vcf/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1Njk2MzEy,size_16,color_FFFFFF,t_70.png" alt="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1Njk2MzEy,size_16,color_FFFFFF,t_70"></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-19 10:36
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/conda/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">一个包管理器：conda</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/data-file-format-bed/">
+            <span class="next-text nav-default">Data File Formats | bed</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<?xml-stylesheet type="text/xsl" href="https://yulicarp.github.io/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/linux/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/linux/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-tee%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/shell/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/</loc>
+    <lastmod>2020-12-05T15:46:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-find%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2020-12-05T12:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-which-whereis-locate-find%E6%AF%94%E8%BE%83/</loc>
+    <lastmod>2020-12-05T11:41:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-xargs/</loc>
+    <lastmod>2020-12-05T11:13:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/2020course/</loc>
+    <lastmod>2020-11-28T16:50:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/2020course-hw-2/</loc>
+    <lastmod>2020-11-28T16:50:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/course_homework/</loc>
+    <lastmod>2020-11-28T16:50:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/quote_%E5%85%B3%E4%B8%8D%E6%8E%89%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5/</loc>
+    <lastmod>2020-11-27T20:52:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2020-11-27T20:52:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/%E6%9D%82/</loc>
+    <lastmod>2020-11-27T20:52:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/%E8%BD%AC%E8%BD%BD/</loc>
+    <lastmod>2020-11-27T20:52:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/conda/</loc>
+    <lastmod>2020-11-21T10:57:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/software/</loc>
+    <lastmod>2020-11-21T10:57:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/conda/</loc>
+    <lastmod>2020-11-21T10:57:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/data-file-formats/</loc>
+    <lastmod>2020-11-19T10:36:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/data-file-format-vcf/</loc>
+    <lastmod>2020-11-19T10:36:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/data-file-format-bed/</loc>
+    <lastmod>2020-11-17T17:20:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/data-file-format-sam-and-bam/</loc>
+    <lastmod>2020-11-17T17:15:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/data-file-format-fasta-and-fastq/</loc>
+    <lastmod>2020-11-17T17:06:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/data-file-formatsgff-and-gtf/</loc>
+    <lastmod>2020-11-15T15:41:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-3-shell_bash/</loc>
+    <lastmod>2020-11-14T10:18:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/awk/</loc>
+    <lastmod>2020-11-13T11:40:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-2-awk_sed_grep/</loc>
+    <lastmod>2020-11-13T11:40:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/module/</loc>
+    <lastmod>2020-11-12T21:31:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/python/</loc>
+    <lastmod>2020-11-12T21:31:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/python/</loc>
+    <lastmod>2020-11-12T21:31:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/python_collections/</loc>
+    <lastmod>2020-11-12T21:31:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/standard-library/</loc>
+    <lastmod>2020-11-12T21:31:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/docker/</loc>
+    <lastmod>2020-11-10T09:37:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/categories/docker/</loc>
+    <lastmod>2020-11-10T09:37:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/docker/</loc>
+    <lastmod>2020-11-10T09:37:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/linux-1-basic-command/</loc>
+    <lastmod>2020-11-08T19:32:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/post/2020-11-08-start-blogging/</loc>
+    <lastmod>2020-11-08T18:19:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/about/</loc>
+    <lastmod>2020-11-08T17:47:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://yulicarp.github.io/tags/me/</loc>
+    <lastmod>2020-11-08T17:47:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

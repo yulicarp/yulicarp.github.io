@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>2020course hw-2 - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="blast and conservation analysis" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/2020course-hw-2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="2020course hw-2" />
+<meta property="og:description" content="blast and conservation analysis" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/2020course-hw-2/" />
+<meta property="article:published_time" content="2020-11-28T16:50:45+08:00" />
+<meta property="article:modified_time" content="2020-11-28T16:50:45+08:00" />
+<meta itemprop="name" content="2020course hw-2">
+<meta itemprop="description" content="blast and conservation analysis">
+<meta itemprop="datePublished" content="2020-11-28T16:50:45+08:00" />
+<meta itemprop="dateModified" content="2020-11-28T16:50:45+08:00" />
+<meta itemprop="wordCount" content="3183">
+
+
+
+<meta itemprop="keywords" content="2020course," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2020course hw-2"/>
+<meta name="twitter:description" content="blast and conservation analysis"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">2020course hw-2</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-28 16:50 </span>
+        <div class="post-category">
+            <a href="/categories/course_homework/"> course_homework </a>
+            </div>
+          <span class="more-meta"> 约 3183 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#blast">blast</a>
+      <ul>
+        <li><a href="#task-1">Task 1</a>
+          <ul>
+            <li><a href="#results"><strong>Results:</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#task-2">Task 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#conservation-analysis">Conservation Analysis</a>
+      <ul>
+        <li><a href="#task-1-1">Task 1</a></li>
+        <li><a href="#task-2-1">Task 2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="blast">blast</h1>
+<h2 id="task-1">Task 1</h2>
+<blockquote>
+<p>Blast sequence with mouse genome</p>
+</blockquote>
+<ul>
+<li><strong>Step1:</strong> enter query sequence</li>
+</ul>
+<p><img src="/images/2020course-hw-1/image-20201122165556658.png" alt="image-20201122165556658"></p>
+<ul>
+<li><strong>Step2:</strong> choose different databases (Non-redundant protein (nr), Reference Proteins (refseq_protein) and swissprot) ; enter mouse  (taxid:10088)</li>
+</ul>
+<p><img src="/images/2020course-hw-1/image-20201122170154003.png" alt="image-20201122170154003"></p>
+<p><img src="/images/2020course-hw-1/image-20201122170218871.png" alt="image-20201122170218871"></p>
+<p><img src="/images/2020course-hw-1/image-20201122195641613.png" alt="image-20201122195641613"></p>
+<ul>
+<li><strong>Step3:</strong> change algorithm parameters (<strong>Max target sequences: 10, Expect threshold: 0.5</strong>) and leave the other parameters as defaults</li>
+</ul>
+<p><img src="/images/2020course-hw-1/image-20201122170440403.png" alt="image-20201122170440403"></p>
+<ul>
+<li><strong>Step4:</strong> blast</li>
+</ul>
+<h3 id="results"><strong>Results:</strong></h3>
+<ul>
+<li><strong>nr</strong>: 将目标蛋白序列与nr数据库进行blastp，得到10条结果，包含两个小鼠种类 (<em>Mus musculus</em>和<em>Mus pahari</em>)。其中E-value最小的是<em>Mus musculus</em>的Vim蛋白，来自<em>Mus pahari</em>的序列是利用Gnomon预测的，具有mRNA的支持。</li>
+</ul>
+<blockquote>
+<p>All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF excluding environmental samples from WGS projects</p>
+</blockquote>
+<p><img src="/images/2020course-hw-1/image-20201122171336696.png" alt="image-20201122171336696"></p>
+<ul>
+<li><strong>Refseq_protein</strong>: 与refseq_protein进行比对，得到2条结果，包含两个小鼠种类 (<em>Mus musculus</em>和<em>Mus pahari</em>)。比对上的这两个Sbject序列一致。</li>
+</ul>
+<p><img src="/images/2020course-hw-1/image-20201122200205838.png" alt="image-20201122200205838"></p>
+<ul>
+<li><strong>Swiss-prot:</strong> 得到1条结果，仅得到<em>Mus musculus</em>的Vimentin蛋白</li>
+</ul>
+<p><img src="/images/2020course-hw-1/image-20201122200307699.png" alt="image-20201122200307699"></p>
+<p>因为nr数据库是所有GenBank+EMBL+DDBJ+PDB中的非冗余蛋白序列，对于所有已知的或可能的编码序列，nr记录中都给出了相应的氨基酸序列（通过已知或可能的读码框推断而来）以及专门蛋白数据库中的序列号，所以经过blastp后的得到的结果最多，且在refseq和Swiss-prot数据库比对得到的结果，在nr数据库中也能找到。refseq中得到的结果中，虽然比对上的Sbject序列一致，但两个蛋白记录的状态不同，来自<em>Mus musculus</em>的蛋白质是具有多篇文献支持，经过reviewed，来自<em>Mus pahari</em>的蛋白仅是经计算机软件预测的。在swiss-prot中，仅检测到一条记录，这也与数据库本身的特点有关。swiss-prot数据库为了避免过多的重复，会将同种蛋白的记录进行仔细比较后，归到一条记录中，因此输出的结果最少。</p>
+<h2 id="task-2">Task 2</h2>
+<blockquote>
+<p>常见的PAM250有如两种（一种对称、一种不对称）。总结和解释一下这两种（对称和不对称）PAM250不一样的原因及其在应用上的不同。</p>
+</blockquote>
+<ul>
+<li>不对称的PAM250</li>
+</ul>
+<p>指的是Mutation Probability Matrix，这个矩阵的元素的计算公式如下：
+$$
+M_{ij} = \frac{\lambda m_j A_{ij}}{\sum_{i=1,i\not=j}^{20} A_{ij}}
+$$
+$$
+M_{jj} = 1-\lambda M_j
+$$</p>
+<p>$A_{ij}$: the element of accepted point mutation matrix</p>
+<p>$m_j$: relative mutability of $j_{th}$ amino acid</p>
+<p>$\lambda$: proportionality constant</p>
+<p>$M_{ij}$: refers to the probability that an original amino acid <code>j</code> will be replaced by  amino acid <code>i</code></p>
+<p>$M_{jj}$: refers to the probability that the original amino acid <code>j</code> will remian <code>j</code></p>
+<p>Mutation Probability Matrix不对称是因为，每个氨基酸的相对突变率不相等，本质上每个氨基酸出现的相对频率不一样。Mutation Probability Matrix反映的是不同氨基酸之间的替换被接收的可能性。如果$M_{ij}$的值越大，反映这两个氨基酸替换的可能性越大，通常来说这两个氨基酸的物理化学特性相似，替换发生后蛋白质的功能不变，越容易被自然选择接受。但Mutation Probability Matrix不能直接作为打分矩阵，需要将合理的氨基酸替代做奖励，而不经常发生的氨基酸替代做罚分，并且$M_{ij}$会随着蛋白质序列允许突变的时间量的未知函数而变化。因此dayhoff等人又从$M$矩阵计算了<code>relatedness Odds Matrix</code>，并去了其<code>log</code>值，也就是下面的非对称的PAM矩阵。</p>
+<ul>
+<li>对称的PAM250</li>
+</ul>
+<p>accepted point mutation，其元素的计算公式为：
+$$
+s_{ij} = 10 * log_{10}\frac{M_{ij}}{f_i}
+$$
+$M_{ij}$: Mutation probability (Prob. substitution from <code>j</code> to <code>i</code> is an accepted mutation)</p>
+<p>$f_{i}$: Frequency of residue<code>i</code> (Probability of amino acid <code>i</code> occurring by chance)</p>
+<p>由于$M$矩阵存在$f_jM_{ij}=f_iM_{ji}$的关系，经推导$s_{ij}=s_{ji}$</p>
+<p>对称的PAM矩阵，表示氨基酸X被Y替代的可能性和氨基酸Y被X替代的可能性是相等的，代表进化的均衡性。相对于不对称的PAM矩阵来说更加方便，使用logarithm可以使得已经整齐比对的序列进行打分。</p>
+<blockquote>
+<p><a href="https://chagall.med.cornell.edu/BioinfoCourse/PDFs/Lecture2/Dayhoff1978.pdf">A Model of Evolutionary Change in Proteins </a></p>
+<p><a href="https://en.wikipedia.org/wiki/Point_accepted_mutation#An_example_-_PAM250">wikipedia_Point accepted mutation</a></p>
+<p><a href="https://bioinformaticshome.com/bioinformatics_tutorials/sequence_alignment/substitution_matrices_page2.html">Construction of substitution matrics</a></p>
+<p><a href="http://www.bioinfbook.org/php/powerpoints">Bioinformatics and functional genomics, third Edition</a></p>
+</blockquote>
+<h1 id="conservation-analysis">Conservation Analysis</h1>
+<h2 id="task-1-1">Task 1</h2>
+<blockquote>
+<p>Files:NPF.fa，使用距离法、最大简约法和最大似然法进行系统发育树（1000 Bootstrap）的构建，并以PDF或图片的形式保留最终结果。</p>
+</blockquote>
+<p>待补充</p>
+<h2 id="task-2-1">Task 2</h2>
+<blockquote>
+<p>自行查阅相关资料，回答下列问题：</p>
+<p>（1）试结合最终结果，解释original tree和Bootstrap consensus tree之间的区别；</p>
+<p>（2）从构建原理的角度，简单解释不同构建方法所需时间有较大差异的原因。</p>
+<p>（3）以同样的方法分析同样的数据，所产生的树有可能存在不同吗？为什么？</p>
+</blockquote>
+<p><strong>(1) original tree 和 Bootstrap concensus tree</strong></p>
+<ul>
+<li>original tree是基于选择的建树方法后，构建的最优树。bootstrap是利用自展重复抽样方法检验original tree的可靠性，bootstrap tree是通过将原来构建的序列重新排列后重复建树方法构建的树，每个树与original tree的拓扑结构进行比较，若有相同的分支分隔，则original tree该内部分支赋值为特征值1，其他分支赋值为0，重复多次，比如bootstrap 1000就是重复1000个树，计算百分比，得到自展值（使用mega后会在original trees上给出自展值）。bootstrap consensus tree是多次bootstrap后的一个composite tree。</li>
+<li>original tree反映了类群之间的进化关系，其分支长度是有意义的。而在bootstrap concensus tree中分析其分支的长度是没有意义上的，consensus tree的拓扑结构可能与original tree不一致，在consensus tree中自展值小于50%的分支将会被折叠。</li>
+</ul>
+<p><strong>(2) 从构建原理的角度，简单解释不同构建方法所需时间有较大差异的原因。</strong></p>
+<p>cost time: ML&gt;MP&gt;UPGMA&gt;NJ</p>
+<p><em><strong>Distance-based methods</strong></em></p>
+<ul>
+<li>unweighted-pair group method with arithmetic mean (UPGMA)</li>
+</ul>
+<p>UPGMA是基于所有的分支上核酸或氨基酸的替换速率是恒定的这一设想。将OTU (Operational Taxonomic Units) 两两比对，构建距离矩阵。将距离矩阵中距离最近的OTUs <code>i</code> <code>j</code>组合在一起，产生一个新的组<code>ij</code>。反映在进化树上，产生一个新的节点将OTU <code>i</code> <code>j</code>连接同时计算剩余的OTUs和<code>ij</code>之间的距离，得到一个新的距离矩阵，再将这个新的距离矩阵中最近的两个OTUs按照上述组合，直到最后只剩余两个组。UPGMA方法简单直观，假设简单，计算速度快，但当不同分支上发生替换的速率不一致时，将会产生不正确的树。</p>
+<ul>
+<li>
+<p>Neighbor-Joining (NJ)</p>
+<p>NJ没有再假设一个恒定的进化速率。起始于一个星型没有分级结构的树，所有的OTUs通过一个虚拟节点而连接。随后通过两两配对，得到一个简单的距离矩阵。随后通过简单的距离矩阵的列求和，计算每个OTU到其他OTUs的净分化距离<code>r</code>。通过公式$M_{ij}=d_{ij}-(r_i+r_j)/N-2$，N为OTU的总数，得到新的距离矩阵，并将$M_{ij}$最小的OTUs作为neighbor，同时通过定义一个新的节点<code>x</code>将将<code>ij</code>连接一起，此时OTUs=N-1。计算其他OTUs到虚拟节点的距离，得到新的距离矩阵，注意矩阵减少一阶，随后重复计算净分化距离<code>r</code>等，连续识别最近的neighbor。不用考虑所有的树，且假设较简单，计算量小，所需时间少。</p>
+</li>
+</ul>
+<p><em><strong>Character-based methods</strong></em></p>
+<ul>
+<li>Maximum Parsimony (MP)</li>
+</ul>
+<p>MP假设基因存在于一个嵌套的亲缘层次中，这反映在序列中共有特征的层次分布中，同时所有的分支的都以相同的速度进化。MP方法首先考虑能够提供信息的位点，多序列比对后一列至少有两个不同的残基，并至少存在于两个的分类群中。根据这些差异位点数确定节点树，考虑所有的可能的拓扑结构，并计算对于每个拓扑结构所需的替代数，找出替代数最小的拓扑结构作为最优树，不需要引入替代模型。当采取启发式搜索的时候，不用考虑所有的树而忽略那些不太可能为分支最短的树，从而降低计算的复杂性，提高了速度。需要注意，MP方法不适用大量序列构建系统发育树，存在大量替换的情形，随着所用资料的增加，MP方法可能会提供错误的进化树。整体来MP方法相较于UPGMA和NJ方法要慢很多，而相比于ML方法要快。</p>
+<ul>
+<li>Maximum Likelihood (ML)</li>
+</ul>
+<p>ML方法同样要考虑所有可能的树，引入替换的模型来分析给定的序列，使得获得的树的拓扑结构和分支长度拥有最大的似然率。最大似然法的建树过程是个很费时的过程，因为在分析过程中有很大的计算量，每个步骤都要考虑内部节点的所有可能性。</p>
+<p>(3) <strong>以同样的方法分析同样的数据，所产生的树有可能存在不同吗？为什么？</strong></p>
+<p>可能存在不同。比如序列之间的差异度，如果差异度太小，用演化关系较近的taxa来构建系统发育树时，可能会产生数个optimal tree。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-28 16:50
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/2020course/">2020course</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/linux-xargs/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux | 4 xargs命令</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/quote_%E5%85%B3%E4%B8%8D%E6%8E%89%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5/">
+            <span class="next-text nav-default">[转载]Browser Tabs You do not Close</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Data File Formats | fasta and fastq - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="fasta and fastq" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/data-file-format-fasta-and-fastq/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Data File Formats | fasta and fastq" />
+<meta property="og:description" content="fasta and fastq" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/data-file-format-fasta-and-fastq/" />
+<meta property="article:published_time" content="2020-11-17T17:06:36+08:00" />
+<meta property="article:modified_time" content="2020-11-17T17:06:36+08:00" />
+<meta itemprop="name" content="Data File Formats | fasta and fastq">
+<meta itemprop="description" content="fasta and fastq">
+<meta itemprop="datePublished" content="2020-11-17T17:06:36+08:00" />
+<meta itemprop="dateModified" content="2020-11-17T17:06:36+08:00" />
+<meta itemprop="wordCount" content="1276">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data File Formats | fasta and fastq"/>
+<meta name="twitter:description" content="fasta and fastq"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Data File Formats | fasta and fastq</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-17 17:06 </span>
+        <div class="post-category">
+            <a href="/categories/data-file-formats/"> data file formats </a>
+            </div>
+          <span class="more-meta"> 约 1276 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fasta">fasta</a></li>
+    <li><a href="#fastq">fastq</a>
+      <ul>
+        <li><a href="#sra">SRA</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="fasta">fasta</h1>
+<p>fasta是最基本的序列（核苷酸或氨基酸）信息储存格式。文件以.fa或.fasatq为后缀。</p>
+<p>举个栗子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&gt;gi|129295|sp|P01013|OVAX_CHICK GENE X PROTEIN (OVALBUMIN-RELATED)
+QIKDLLVSSSTDLDTTLVLVNAIYFKGMWKTAFNAEDTREMPFHVTKQESKPVQMMCMNNSFNVATLPAE
+KMKILELPFASGDLSMLVLLPDEVSDLERIEKTINFEKLTEWTNPNTMEKRRVKVYLPQMKIEEKYNLTS
+VLMALGMTDLFIPSANLTGISSAESLKISQAVHGAFMELSEDGIEMAGSTGVIEDIKHSPESEQFRADHP
+FLFLIKHNPTNTIVYFGRYWSP
+</code></pre></td></tr></table>
+</div>
+</div><p>主要分为两个部分：</p>
+<ul>
+<li>定义行：单行，以<code>&gt;</code> 开头，后面紧跟的是这条序列的名称，具有唯一性。</li>
+<li>序列信息部分：所有的序列（碱基或氨基酸）都可以放在一行储存，也可以放在多行储存，建议单行的长度不超过80个字符，这样方便阅读。碱基的信息可能存在大小写不一致的情形，蛋白质序列信息中，*表示蛋白质翻译结束。</li>
+</ul>
+<h1 id="fastq">fastq</h1>
+<p><code>fastq</code>同样是以文本信息储存序列信息的格式。文件以.fa或.fastq后缀。</p>
+<p><code>fasta</code>是经过人为排列（头信息和序列信息）的序列文件，而<code>fastq</code>则储存的是测序仪产生的原始数据，由测序的图像数据转换而来。与fasta不相同的是，它除了存储序列本身外还存储了序列中每个单元所对应的质量分数，所以fastq格式通常用于高通量测试数据的存储。</p>
+<p><code>fastq</code>文件中一般由4行内容组成，每4行为一个独立的单元，也叫read。</p>
+<p>举个栗子</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@DJB775P1:248:D0MDGACXX:7:1202:12362:49613
+TGCTTACTCTGCGTTGATACCACTGCTTAGATCGGAAGAGCACACGTCTGAA
++
+JJJJJIIJJJJJJHIHHHGHFFFFFFCEEEEEDBD?DDDDDDBDDDABDDCA
+@DJB775P1:248:D0MDGACXX:7:1202:12782:49716
+CTCTGCGTTGATACCACTGCTTACTCTGCGTTGATACCACTGCTTAGATCGG
++
+IIIIIIIIIIIIIIIHHHHHHFFFFFFEECCCCBCECCCCCCCCCCCCCCCC
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>第一行</li>
+</ul>
+<p>通常以<code>@</code>开头，是该序列的名称，也是这段序列唯一标识符，不同的fastq文件也不会重复出现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@DJB775P1:248:D0MDGACXX:7:1202:12362:49613
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>第二行</li>
+</ul>
+<p>是序列的测序结果，N表示测序时无法被识别的碱基。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">TGCTTACTCTGCGTTGATACCACTGCTTAGATCGGAAGAGCACACGTCTGAA
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>第三行</li>
+</ul>
+<p>以<code>+</code>开头，一般什么信息也没有，在旧版的FASTQ文件中会直接重复第一行的信息，但现在一般什么也不加（节省存储空间）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>第四行</li>
+</ul>
+<p>是测序read的质量值<code>Q</code>，与测序的碱基的信息一一对应，表示每个碱基可靠程度，用<code>ASCII码</code>表示。</p>
+<p>如果测得准，则其出错的概率就越低，质量值就越高。</p>
+<blockquote>
+<p>Q = -10*log(p_error)  #p_error: 测序错误率</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">JJJJJIIJJJJJJHIHHHGHFFFFFFCEEEEEDBD?DDDDDDBDDDABDDCA
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>测序平台</th>
+<th>ASCII码范围</th>
+<th>下限</th>
+<th>质量值类型</th>
+<th>质量值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sanger/Illumina</td>
+<td>33-126</td>
+<td>33</td>
+<td>Phred quality socre</td>
+<td>0-93</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Eg. ASCII码33对应的字符串<code>!</code>表示质量值为0。</p>
+<p>ASCII码值-33=Q</p>
+<p>如&rsquo;J' 对应ASCII 码为74，而如果质量体系为Phred33，则通过减去33，则可知&rsquo;J&rsquo;对应的质量值为41。</p>
+</blockquote>
+<h2 id="sra">SRA</h2>
+<p>获得测序的原始数据，可以自己通过仪器测定，也可以从公共数据库NCBI的SRA数据库进行下载。这两种方式主要是在序列名称的命名上和测序质量表示方式上有所不同。</p>
+<ul>
+<li>
+<p>序列名称</p>
+<ul>
+<li>Illumina</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@HWUSI-EAS100R:6:73:941:1973#0/1
+# HWUSI-EAS100R：instrument
+# 6：flowcell lane
+# 73：tile number within the flowcell lane 
+# 941： ‘x’-coordinate of the cluster within the til
+# 1973： ‘y’-coordinate of the cluster within the til
+# #0：index number for a multiplexed sample (0 for no indexing) 
+# /1：the member of a pair, /1 or /2 (paired-end or mate-pair reads only) 
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>SRA数据库</li>
+</ul>
+<p>每个单元的名称是以SRA编号接数字加以区分的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=36
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACC
++SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=36
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9IC
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>质量值表示方式</p>
+</li>
+</ul>
+<p>当把测序数据上传到SRA数据库时，它通常会将表示质量的分数 **转换为标准的Sanger格式。</p>
+<ul>
+<li>SRA &ndash;&gt; fastq</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">for</span> i in <span class="s1">&#39;ls ./magiclines/&#39;</span>
+<span class="k">do</span>
+<span class="nb">echo</span> <span class="nv">$i</span>
+/path/fastq-dump --split-3 /public/users/zhaowenwen/MAGIC/Rice/magiclines/<span class="nv">$i</span> -O ./magic_lines_fastq
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://mp.weixin.qq.com/s/bWhaMA4rrGcDiZXuMF-QQw">学习参考文章1</a></p>
+<p><a href="https://www.jianshu.com/p/1e273cb25c20">学习参考文章2</a></p>
+<p><a href="https://www.cnblogs.com/djx571/p/9493934.html">学习参考文章3</a></p>
+<blockquote>
+<p>在认识完fastq文件格式后，还有许多问题。比如：</p>
+<p>从哪个几个方面认识你的fastq data？质量好坏？</p>
+<p>如何质控？</p>
+<p>了解处理fasta和fastq的强大工具<code>seqkit</code>？</p>
+<p>用shell处理fasta和fastq？</p>
+</blockquote>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-17 17:06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/data-file-format-sam-and-bam/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Data File Formats | sam and bam</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/data-file-formatsgff-and-gtf/">
+            <span class="next-text nav-default">Data File Formats | gff and gtf</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

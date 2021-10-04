@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on yu - bioinfo</title>
+    <link>https://yulicarp.github.io/tags/shell/</link>
+    <description>Recent content in shell on yu - bioinfo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Dec 2020 15:46:11 +0800</lastBuildDate><atom:link href="https://yulicarp.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux | 7 tee命令和重定向符号</title>
+      <link>https://yulicarp.github.io/post/linux-tee%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/</link>
+      <pubDate>Sat, 05 Dec 2020 15:46:11 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/post/linux-tee%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux | 4 xargs命令</title>
+      <link>https://yulicarp.github.io/post/linux-xargs/</link>
+      <pubDate>Sat, 05 Dec 2020 11:13:50 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/post/linux-xargs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux | 3 Shell_bash</title>
+      <link>https://yulicarp.github.io/post/linux-3-shell_bash/</link>
+      <pubDate>Sat, 14 Nov 2020 10:18:47 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/post/linux-3-shell_bash/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

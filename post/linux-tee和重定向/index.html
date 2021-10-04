@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux | 7 tee命令和重定向符号 - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="tee和重定向" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/linux-tee%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux | 7 tee命令和重定向符号" />
+<meta property="og:description" content="tee和重定向" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/linux-tee%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/" />
+<meta property="article:published_time" content="2020-12-05T15:46:11+08:00" />
+<meta property="article:modified_time" content="2020-12-05T15:46:11+08:00" />
+<meta itemprop="name" content="Linux | 7 tee命令和重定向符号">
+<meta itemprop="description" content="tee和重定向">
+<meta itemprop="datePublished" content="2020-12-05T15:46:11+08:00" />
+<meta itemprop="dateModified" content="2020-12-05T15:46:11+08:00" />
+<meta itemprop="wordCount" content="851">
+
+
+
+<meta itemprop="keywords" content="linux,shell," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux | 7 tee命令和重定向符号"/>
+<meta name="twitter:description" content="tee和重定向"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux | 7 tee命令和重定向符号</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-05 15:46 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> linux </a>
+            </div>
+          <span class="more-meta"> 约 851 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tee命令和重定向">tee命令和重定向</a></li>
+    <li><a href="#tee">tee</a>
+      <ul>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#参数">参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#重定向">重定向</a>
+      <ul>
+        <li><a href="#重定向符号">重定向符号</a></li>
+        <li><a href="#重定向标准错误到文件">重定向标准错误到文件</a></li>
+        <li><a href="#重定向错误信息和重定向标准输出到文件">重定向错误信息和重定向标准输出到文件</a></li>
+        <li><a href="#devnull">/dev/null</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="tee命令和重定向">tee命令和重定向</h1>
+<h1 id="tee">tee</h1>
+<hr>
+<p>tee命令能够实现将数据（从标准输出中得到）重定向到文件中，同时还可以提供一份重定向数据的副本作为后续命令的标准输入。i.e, 可以将数据重定向到文件和屏幕上。</p>
+<p><img src="/images/linux_tee/073315SF8.png" alt="img"></p>
+<h2 id="语法">语法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">tee [options] file
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ping google.com | tee output.txt
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="参数">参数</h2>
+<ul>
+<li>-a，追加到文件中</li>
+<li>-i，忽略中断信号</li>
+</ul>
+<p>将tee命令的输出内容直接作为另一个命令的输入的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ls file* <span class="p">|</span> tee output.txt <span class="p">|</span> wc -l
+</code></pre></td></tr></table>
+</div>
+</div><p>写入多个文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ping google.com <span class="p">|</span> tee output1.txt output2.txt output3.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>将标准错误也输出也保存到文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ls <span class="s2">&#34;*&#34;</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span>tee ls.txt
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="重定向">重定向</h1>
+<hr>
+<p>标准输入；代码为 0 ；或称为 stdin ；使用的方式为 &lt;                             <br>
+标准输出：代码为 1 ；或称为 stdout；使用的方式为 1&gt;
+错误输出：代码为 2 ；或称为 stderr；使用的方式为 2&gt;</p>
+<ul>
+<li>输入重定向：输入重定向：是指不使用系统提供的标准输入端口，而进行重新的指定。换言之，输入重定向就是不使用标准输入端口输入文件，而是使用指定的文件作为标准输入设备。（重定向简单理解就是使用 “&lt;”符来修改标准输入设备）</li>
+<li>输出重定向：<strong>输出重定向就是指不使用linux默认的标准输出设备显示信息</strong>，而是指定某个文件做为标准输出设备来存储文件信息。重定向标准输出不会重定向表准错误输出。</li>
+</ul>
+<p><img src="/images/linux_tee/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWN5MDA3,size_16,color_FFFFFF,t_70.png" alt="在这里插入图片描述"></p>
+<p><img src="/images/linux_tee/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdWN5MDA3,size_16,color_FFFFFF,t_70-20201205151428134.png" alt="在这里插入图片描述"></p>
+<h2 id="重定向符号">重定向符号</h2>
+<p><code>&gt;</code> 实际上是<code>1&gt;</code></p>
+<p><code>&gt;!</code> 强制覆盖</p>
+<p><code>&gt;&gt;</code>追加</p>
+<p><code>&lt;</code> 输入</p>
+<p><code>&gt;&amp;n</code> 使用<a href="https://www.baidu.com/s?wd=%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YkPWR1nvcYnWc4rA7-rjuW0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3ErHbvPWDznHn">系统调用</a> dup (2) 复制<a href="https://www.baidu.com/s?wd=%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YkPWR1nvcYnWc4rA7-rjuW0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3ErHbvPWDznHn">文件描述符</a> n 并把结果用作标准输出</p>
+<blockquote>
+<p>命令行后加上 &amp;，表示让命令在后台运行</p>
+</blockquote>
+<h2 id="重定向标准错误到文件">重定向标准错误到文件</h2>
+<p><code>2&gt;</code></p>
+<p><code>2&gt;&gt;</code></p>
+<p><code>2&gt;&amp;1</code></p>
+<h2 id="重定向错误信息和重定向标准输出到文件">重定向错误信息和重定向标准输出到文件</h2>
+<p>stderr重定向到一个文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#errfile不存在</span>
+ls -l errfile 2&gt; err.log
+</code></pre></td></tr></table>
+</div>
+</div><p>stdout和stderr重定向到同一个文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">cat a.txt errfile 2&gt;&gt;b.txt 1&gt;&gt;b.txt
+cat a.txt errfile <span class="p">&amp;</span>&gt; b.txt
+cat a.txt errfile &gt;<span class="p">&amp;</span> b.txt <span class="c1">#与上面的命令等价 &gt;&amp;的顺序可以换</span>
+cat a.txt errfile &gt; b.txt 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="c1">#&amp;1 描述1为一个文件描述符而不是一个文件名为1的文件</span>
+<span class="c1">#2&gt;&amp;1 将stderr重定向到文件描述符为1的文件中，即/dev/stdout，这个文件是stdout在file system的映射</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>stdout和stderr分开重定向到两个文件中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#a.txt提前存在 err.txt不存在</span>
+ls -l a.txt err.txt 2&gt;err.log 1&gt;test.log 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="devnull">/dev/null</h2>
+<p>如果不想在屏幕上显示输出结果，可以将输出重定向到/dev/null</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-12-05 15:46
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/shell/">shell</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/linux-find%E5%91%BD%E4%BB%A4/">
+            <span class="next-text nav-default">Linux | 6 find命令</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

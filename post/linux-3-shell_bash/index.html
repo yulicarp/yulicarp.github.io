@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux | 3 Shell_bash - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="shell" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/linux-3-shell_bash/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux | 3 Shell_bash" />
+<meta property="og:description" content="shell" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/linux-3-shell_bash/" />
+<meta property="article:published_time" content="2020-11-14T10:18:47+08:00" />
+<meta property="article:modified_time" content="2020-11-14T10:18:47+08:00" />
+<meta itemprop="name" content="Linux | 3 Shell_bash">
+<meta itemprop="description" content="shell">
+<meta itemprop="datePublished" content="2020-11-14T10:18:47+08:00" />
+<meta itemprop="dateModified" content="2020-11-14T10:18:47+08:00" />
+<meta itemprop="wordCount" content="1190">
+
+
+
+<meta itemprop="keywords" content="linux,shell," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux | 3 Shell_bash"/>
+<meta name="twitter:description" content="shell"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux | 3 Shell_bash</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-14 10:18 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> linux </a>
+            </div>
+          <span class="more-meta"> 约 1190 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#shell-变量">Shell 变量</a>
+      <ul>
+        <li><a href="#定义变量">定义变量</a></li>
+        <li><a href="#使用变量">使用变量</a></li>
+        <li><a href="#只读变量">只读变量</a></li>
+        <li><a href="#变量类型">变量类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell-字符串">Shell 字符串</a>
+      <ul>
+        <li><a href="#定义字符串">定义字符串</a></li>
+        <li><a href="#拼接字符串">拼接字符串</a></li>
+        <li><a href="#获取字符串长度">获取字符串长度</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell-数组">Shell 数组</a>
+      <ul>
+        <li><a href="#定义数组">定义数组</a></li>
+        <li><a href="#读取数组">读取数组</a></li>
+        <li><a href="#获取数组的长度">获取数组的长度</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell-基本运算符">Shell 基本运算符</a>
+      <ul>
+        <li><a href="#算数运算符">算数运算符</a></li>
+      </ul>
+    </li>
+    <li><a href="#shell-各种括号的区别">shell 各种括号的区别</a></li>
+    <li><a href="#shell-流程控制-各种循环">shell 流程控制-各种循环</a>
+      <ul>
+        <li><a href="#if-语句">if 语句</a></li>
+        <li><a href="#for循环">for循环</a></li>
+        <li><a href="#while循环">while循环</a></li>
+        <li><a href="#无限循环">无限循环</a></li>
+        <li><a href="#until-循环">until 循环</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="shell-变量">Shell 变量</h1>
+<h2 id="定义变量">定义变量</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">my_var</span><span class="o">=</span><span class="s2">&#34;liyu&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<ul>
+<li>由英文字母、数字、下划线组成，开头不能为数字</li>
+<li>不能有标点符号</li>
+<li>等号前后不能有空格</li>
+<li>不能使用bash的关键字</li>
+</ul>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#利用语句对变量进行赋值</span>
+<span class="k">for</span> my_var in <span class="sb">`</span>ls /home/test<span class="sb">`</span>
+or
+<span class="k">for</span> my_var in <span class="k">$(</span>ls /home/test<span class="k">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用变量">使用变量</h2>
+<ul>
+<li>
+<p>在变量前加入$符号，例如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">my_var</span><span class="o">=</span><span class="s2">&#34;liyu&#34;</span>
+<span class="nb">echo</span> <span class="nv">$my_var</span>
+或者
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">my_var</span><span class="si">}</span> <span class="c1">#常用</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="只读变量">只读变量</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">my_var</span><span class="o">=</span><span class="s2">&#34;liyu&#34;</span>
+<span class="nb">readonly</span> my_var <span class="c1">#将变量my_var变成只读</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="变量类型">变量类型</h2>
+<ul>
+<li>局部变量</li>
+<li>环境变量</li>
+<li>shell变量</li>
+</ul>
+<h1 id="shell-字符串">Shell 字符串</h1>
+<h2 id="定义字符串">定义字符串</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">str</span><span class="o">=</span><span class="s2">&#34;this is a string&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<ul>
+<li>利用双引号定义</li>
+<li>其中可以有变量</li>
+<li>其中可以出现转义符</li>
+</ul>
+</blockquote>
+<h2 id="拼接字符串">拼接字符串</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!bin/bash
+</span><span class="cp"></span><span class="nv">my_var</span><span class="o">=</span><span class="s2">&#34;liyu&#34;</span>
+<span class="nv">greeting</span><span class="o">=</span><span class="s2">&#34;hello,&#34;</span><span class="nv">$my_var</span><span class="s2">&#34;.&#34;</span>
+<span class="nv">greeting2</span><span class="o">=</span><span class="s2">&#34;hello,</span><span class="si">${</span><span class="nv">my_var</span><span class="si">}</span><span class="s2">.&#34;</span>
+<span class="nb">echo</span> <span class="nv">$greeting</span>
+<span class="nb">echo</span> <span class="nv">$greeting2</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">hello,liyu.
+hello,liyu.
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="获取字符串长度">获取字符串长度</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="si">${#</span><span class="nv">greeting</span><span class="si">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="shell-数组">Shell 数组</h1>
+<h2 id="定义数组">定义数组</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">array_name</span><span class="o">=(</span>value1 value2 value3<span class="o">)</span>
+或者
+<span class="nv">array_name</span><span class="o">=(</span>
+value1
+value2
+value3
+<span class="o">)</span>
+或者
+array_name<span class="o">[</span>0<span class="o">]=</span>value1
+array_name<span class="o">[</span>1<span class="o">]=</span>value2
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="读取数组">读取数组</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">valuen</span><span class="o">=</span><span class="si">${</span><span class="nv">array_name</span><span class="p">[n]</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">array_name</span><span class="p">[@]</span><span class="si">}</span> <span class="c1">#获取数组的全部袁术</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="获取数组的长度">获取数组的长度</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 取得数组元素的个数</span>
+<span class="nv">length</span><span class="o">=</span><span class="si">${#</span><span class="nv">array_name</span><span class="p">[@]</span><span class="si">}</span>
+<span class="c1"># 或者</span>
+<span class="nv">length</span><span class="o">=</span><span class="si">${#</span><span class="nv">array_name</span><span class="p">[*]</span><span class="si">}</span>
+<span class="c1"># 取得数组单个元素的长度</span>
+<span class="nv">lengthn</span><span class="o">=</span><span class="si">${#</span><span class="nv">array_name</span><span class="p">[n]</span><span class="si">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="shell-基本运算符">Shell 基本运算符</h1>
+<ul>
+<li>算数运算符，加减乘除，相等，不相等</li>
+<li>关系运算符，比较数字的大小</li>
+<li>布尔运算符，与或非</li>
+<li>逻辑运算符，逻辑的 AND 逻辑的OR</li>
+<li>字符串运算符</li>
+<li>文件测试运算符</li>
+</ul>
+<h2 id="算数运算符">算数运算符</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nv">var</span><span class="o">=</span><span class="sb">`</span>expr <span class="m">2</span> + 2<span class="sb">`</span>
+<span class="nb">echo</span> <span class="s2">&#34;两数之和为，</span><span class="si">${</span><span class="nv">var</span><span class="si">}</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<ul>
+<li>表达式要被``或者条件表达式[]</li>
+<li>运算符之间要有空格</li>
+</ul>
+</blockquote>
+<p><img src="/images/linux-3-shell_bash/image-20200809172330175.png" alt="image-20200809172330175"></p>
+<h1 id="shell-各种括号的区别">shell 各种括号的区别</h1>
+<p><a href="https://blog.csdn.net/ai_xiangjuan/article/details/82082391">shell各种括号的区别</a></p>
+<p><a href="https://www.jb51.net/article/60326.htm">shell中的各种括号的使用方法</a></p>
+<blockquote>
+<p>各种括号真的好复杂，每次一个没记清楚就会用错！:(</p>
+</blockquote>
+<p><code>“``”</code>和<code>&quot;$()&quot;</code> 其中包括的是命令行；</p>
+<p><code>${}</code> 用作变量的引用；</p>
+<p><code>$[]</code> 和 <code>(())</code> 用作数学运算和字符串的运算。</p>
+<h1 id="shell-流程控制-各种循环">shell 流程控制-各种循环</h1>
+<h2 id="if-语句">if 语句</h2>
+<ul>
+<li>if</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">if</span> <span class="o">[</span> condition <span class="o">]</span>
+<span class="k">then</span>
+	<span class="nb">command</span>
+	<span class="nb">command</span>
+	<span class="nb">command</span>
+<span class="k">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> <span class="k">$(</span>condition<span class="k">)</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span> command<span class="p">;</span><span class="k">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>if-else</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">if</span> <span class="o">[</span> condition <span class="o">]</span>
+<span class="k">then</span>
+	<span class="nb">command</span>
+	<span class="nb">command</span>
+	comand
+<span class="k">else</span>
+	<span class="nb">command</span>
+<span class="k">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>if-elif</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">if</span> <span class="o">[</span> condition <span class="o">]</span>
+<span class="k">then</span>
+	<span class="nb">command</span>
+	<span class="nb">command</span>
+	<span class="nb">command</span>
+<span class="k">elif</span> <span class="o">[</span> condition <span class="o">]</span>
+<span class="k">then</span>
+	<span class="nb">command</span>
+<span class="k">else</span>
+	<span class="nb">command</span>
+<span class="k">fi</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="for循环">for循环</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="k">for</span> var in item1 item2 item3
+<span class="k">do</span> 
+	<span class="nb">command</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">for</span> var in item1 item2 ... itemN<span class="p">;</span> <span class="k">do</span> command1<span class="p">;</span> command2… <span class="k">done</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="while循环">while循环</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">while</span> condition
+<span class="k">do</span>
+    <span class="nb">command</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以下是一个基本的while循环，测试条件是：如果int小于等于5，那么条件返回真。int从0开始，每次循环处理时，int加1。运行上述脚本，返回数字1到5，然后终止。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">int</span><span class="o">=</span><span class="m">1</span>
+<span class="k">while</span><span class="o">((</span> <span class="nv">$int</span>&lt;<span class="o">=</span><span class="m">5</span> <span class="o">))</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$int</span>
+    <span class="nb">let</span> <span class="s2">&#34;int++&#34;</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>while循环可用于读取键盘信息。下面的例子中，输入信息被设置为变量FILM，按<Ctrl-D>结束循环。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s1">&#39;按下 &lt;CTRL-D&gt; 退出&#39;</span>
+<span class="nb">echo</span> -n <span class="s1">&#39;输入你最喜欢的网站名: &#39;</span>
+<span class="k">while</span> <span class="nb">read</span> FILM
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&#34;是的！</span><span class="nv">$FILM</span><span class="s2"> 是一个好网站&#34;</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="无限循环">无限循环</h2>
+<p>无限循环语法格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">while</span> :
+<span class="k">do</span>
+    <span class="nb">command</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>或者</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">while</span> <span class="nb">true</span>
+<span class="k">do</span>
+    <span class="nb">command</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="until-循环">until 循环</h2>
+<p>until 循环执行一系列命令直至条件为 true 时停止。</p>
+<p>until 循环与 while 循环在处理方式上刚好相反。</p>
+<p>一般 while 循环优于 until 循环，但在某些时候—也只是极少数情况下，until 循环更加有用。</p>
+<p>until 语法格式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="k">until</span> condition
+<span class="k">do</span>
+    <span class="nb">command</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>condition 一般为条件表达式，如果返回值为 false，则继续执行循环体内的语句，否则跳出循环。</p>
+<p>以下实例我们使用 until 命令来输出 0 ~ 9 的数字：sh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/bashsh
+</span><span class="cp"></span>
+<span class="nv">a</span><span class="o">=</span><span class="m">0</span>
+
+<span class="k">until</span> <span class="o">[</span> ! <span class="nv">$a</span> -lt <span class="m">10</span> <span class="o">]</span>
+<span class="k">do</span>
+   <span class="nb">echo</span> <span class="nv">$a</span>
+   <span class="nv">a</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$a</span> + 1<span class="sb">`</span>
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p>输出结果为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="m">0</span>
+<span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+<span class="m">4</span>
+<span class="m">5</span>
+<span class="m">6</span>
+<span class="m">7</span>
+<span class="m">8</span>
+<span class="m">9</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-14 10:18
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/shell/">shell</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/data-file-formatsgff-and-gtf/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Data File Formats | gff and gtf</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/linux-2-awk_sed_grep/">
+            <span class="next-text nav-default">Linux | 2 awk_sed_grep</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

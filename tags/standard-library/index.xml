@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>standard library on yu - bioinfo</title>
+    <link>https://yulicarp.github.io/tags/standard-library/</link>
+    <description>Recent content in standard library on yu - bioinfo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Nov 2020 21:31:46 +0800</lastBuildDate><atom:link href="https://yulicarp.github.io/tags/standard-library/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python-module | collections</title>
+      <link>https://yulicarp.github.io/post/python_collections/</link>
+      <pubDate>Thu, 12 Nov 2020 21:31:46 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/post/python_collections/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

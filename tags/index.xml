@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on yu - bioinfo</title>
+    <link>https://yulicarp.github.io/tags/</link>
+    <description>Recent content in Tags on yu - bioinfo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Dec 2020 15:46:11 +0800</lastBuildDate><atom:link href="https://yulicarp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://yulicarp.github.io/tags/linux/</link>
+      <pubDate>Sat, 05 Dec 2020 15:46:11 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://yulicarp.github.io/tags/shell/</link>
+      <pubDate>Sat, 05 Dec 2020 15:46:11 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2020course</title>
+      <link>https://yulicarp.github.io/tags/2020course/</link>
+      <pubDate>Sat, 28 Nov 2020 16:50:45 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/2020course/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>杂</title>
+      <link>https://yulicarp.github.io/tags/%E6%9D%82/</link>
+      <pubDate>Fri, 27 Nov 2020 20:52:16 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/%E6%9D%82/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>转载</title>
+      <link>https://yulicarp.github.io/tags/%E8%BD%AC%E8%BD%BD/</link>
+      <pubDate>Fri, 27 Nov 2020 20:52:16 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/%E8%BD%AC%E8%BD%BD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conda</title>
+      <link>https://yulicarp.github.io/tags/conda/</link>
+      <pubDate>Sat, 21 Nov 2020 10:57:40 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/conda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>https://yulicarp.github.io/tags/awk/</link>
+      <pubDate>Fri, 13 Nov 2020 11:40:40 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>module</title>
+      <link>https://yulicarp.github.io/tags/module/</link>
+      <pubDate>Thu, 12 Nov 2020 21:31:46 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/module/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://yulicarp.github.io/tags/python/</link>
+      <pubDate>Thu, 12 Nov 2020 21:31:46 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>standard library</title>
+      <link>https://yulicarp.github.io/tags/standard-library/</link>
+      <pubDate>Thu, 12 Nov 2020 21:31:46 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/standard-library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://yulicarp.github.io/tags/docker/</link>
+      <pubDate>Tue, 10 Nov 2020 09:37:52 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>me</title>
+      <link>https://yulicarp.github.io/tags/me/</link>
+      <pubDate>Sun, 08 Nov 2020 17:47:50 +0800</pubDate>
+      
+      <guid>https://yulicarp.github.io/tags/me/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

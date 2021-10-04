@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux | 1 Basic Command - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="basic commands" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/linux-1-basic-command/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux | 1 Basic Command" />
+<meta property="og:description" content="basic commands" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/linux-1-basic-command/" />
+<meta property="article:published_time" content="2020-11-08T19:32:15+08:00" />
+<meta property="article:modified_time" content="2020-11-08T19:32:15+08:00" />
+<meta itemprop="name" content="Linux | 1 Basic Command">
+<meta itemprop="description" content="basic commands">
+<meta itemprop="datePublished" content="2020-11-08T19:32:15+08:00" />
+<meta itemprop="dateModified" content="2020-11-08T19:32:15+08:00" />
+<meta itemprop="wordCount" content="685">
+
+
+
+<meta itemprop="keywords" content="linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux | 1 Basic Command"/>
+<meta name="twitter:description" content="basic commands"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux | 1 Basic Command</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-08 19:32 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> linux </a>
+            </div>
+          <span class="more-meta"> 约 685 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#basic-commands">Basic commands</a>
+      <ul>
+        <li><a href="#ls">ls</a></li>
+        <li><a href="#mkdircdpwd">mkdir/cd/pwd</a></li>
+        <li><a href="#touchrmmv">touch/rm/mv</a></li>
+        <li><a href="#catlessheadtail">cat/less/head/tail</a></li>
+        <li><a href="#wc">wc</a></li>
+        <li><a href="#sortuniq">sort/uniq</a></li>
+        <li><a href="#cut">cut</a></li>
+        <li><a href="#chmod">chmod</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="basic-commands">Basic commands</h1>
+<p><a href="https://lulab2.gitbook.io/teaching/part-i.-basic-skills/2.linux/2.1.linux-basic-command">学习参考</a></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ls</code></td>
+<td>List 显示文件列表</td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>change directory 切换目录</td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>make directory 创建一个空文件夹</td>
+</tr>
+<tr>
+<td><code>less</code></td>
+<td>翻页查看文件</td>
+</tr>
+<tr>
+<td><code>head</code></td>
+<td>默认查看文件前10行</td>
+</tr>
+<tr>
+<td><code>tail</code></td>
+<td>默认查看文件后10行</td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>直接查看整个文件</td>
+</tr>
+<tr>
+<td><code>cut</code></td>
+<td>取出文件特定的列或字符</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>排序</td>
+</tr>
+<tr>
+<td><code>uniq</code></td>
+<td>去重复</td>
+</tr>
+<tr>
+<td><code>chmod</code></td>
+<td>改变权限</td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>Move 移动文件或目录，重命名文件或目录</td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>remove 删除目录或文件</td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>copy and paste 复制文件或目录</td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>创建文件</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>print working directory 显示当前工作目录</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>将结果输入给新文件或覆盖源文件</td>
+</tr>
+<tr>
+<td>&raquo;</td>
+<td>将终端结果输出给文件，内容会加在原文件尾部</td>
+</tr>
+<tr>
+<td>|</td>
+<td>将左边命令的标准输出（standard output）作为右边命令接受的标准输入（standard input）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ls">ls</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">-a：显示全部文件，包括全部文件
+-h：将目录或文件的大小以已读的方式展示
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mkdircdpwd">mkdir/cd/pwd</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#通常配合使用</span>
+mkdir newdirectory
+<span class="nb">cd</span> newdirectory
+<span class="c1">#目录前加入绝对路径</span>
+<span class="nb">cd</span> ~/directory <span class="c1">#打开用户下某目录</span>
+<span class="nb">cd</span> ./directory <span class="c1">#.表示当前工作目录</span>
+<span class="c1">#显示当前工作目录</span>
+<span class="nb">pwd</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="touchrmmv">touch/rm/mv</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">touch newfile <span class="c1">#创建一个新的文件</span>
+rm file <span class="c1">#删除文件</span>
+rm -rf <span class="c1">#强制删除文件和文件夹</span>
+mv old_path/file new_path <span class="c1">#移动文件</span>
+mv oldname newname <span class="c1">#重命名</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="catlessheadtail">cat/less/head/tail</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">cat file <span class="c1">#直接查看文件</span>
+less file <span class="c1">#翻页查看文件</span>
+head file <span class="c1">#默认查看前10行内容</span>
+head -n <span class="m">6</span> file <span class="c1">#查看文件前6行的内容</span>
+tail file <span class="c1">#默认查看文件后10行内容</span>
+tail -n <span class="m">6</span> file <span class="c1">#查看文件后6行内容</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="wc">wc</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">wc -l file <span class="c1">#查看文件多少行</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="sortuniq">sort/uniq</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">sort -k4 file <span class="c1">#按照文件第4列进行排序</span>
+sort -k5 file <span class="c1">#按照文件第5列进行排序 ASCII码顺序</span>
+sort -k5 -n file <span class="c1">#按照文件第5列进行排序 ASCII数值顺序</span>
+<span class="c1"># 去重复并且计算重复频率（仅能处理串联重复）</span>
+uniq -c file
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="cut">cut</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">cut -f <span class="m">4</span> file <span class="c1">#取文件第4列 默认制表符为分隔符</span>
+cut -d <span class="s2">&#34;;&#34;</span> -f <span class="m">4</span> file <span class="c1">#以；为分隔符，取文件第4列</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="chmod">chmod</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># r=read w=write x=excute</span>
+<span class="c1"># r=4 w=2 x=1</span>
+<span class="c1"># u=user g=group o=others a=all</span>
+chmod <span class="m">775</span> file
+chmod a+x file
+chmod u+x <span class="nv">go</span><span class="o">=</span>rx file
+</code></pre></td></tr></table>
+</div>
+</div><p>更多学习：</p>
+<p><a href="https://www.ctolib.com/docs/sfile/vbird-linux-basic-4e/">《鸟哥的Linux私房菜》</a></p>
+<p><a href="https://www.runoob.com/linux/linux-vim.html">vim学习</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-08 19:32
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/docker/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Docker基础</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2020-11-08-start-blogging/">
+            <span class="next-text nav-default">Start blogging</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

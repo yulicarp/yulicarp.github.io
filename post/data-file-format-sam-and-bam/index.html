@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Data File Formats | sam and bam - yu - bioinfo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="liyu" /><meta name="description" content="sam and bam" /><meta name="keywords" content="bio, bioinfo, notes" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.1 with theme even" />
+
+
+<link rel="canonical" href="https://yulicarp.github.io/post/data-file-format-sam-and-bam/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Data File Formats | sam and bam" />
+<meta property="og:description" content="sam and bam" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yulicarp.github.io/post/data-file-format-sam-and-bam/" />
+<meta property="article:published_time" content="2020-11-17T17:15:06+08:00" />
+<meta property="article:modified_time" content="2020-11-17T17:15:06+08:00" />
+<meta itemprop="name" content="Data File Formats | sam and bam">
+<meta itemprop="description" content="sam and bam">
+<meta itemprop="datePublished" content="2020-11-17T17:15:06+08:00" />
+<meta itemprop="dateModified" content="2020-11-17T17:15:06+08:00" />
+<meta itemprop="wordCount" content="2051">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data File Formats | sam and bam"/>
+<meta name="twitter:description" content="sam and bam"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Sycamore</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Sycamore</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Data File Formats | sam and bam</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-17 17:15 </span>
+        <div class="post-category">
+            <a href="/categories/data-file-formats/"> data file formats </a>
+            </div>
+          <span class="more-meta"> 约 2051 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sambam">sam/bam</a>
+      <ul>
+        <li><a href="#header">header</a></li>
+        <li><a href="#record">record</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="sambam">sam/bam</h1>
+<p><code>BAM</code>文件是用来最通用的mapping数据储存格式，长、短read都适用。</p>
+<p><code>SAM</code> (the Sequencing Alignment/Map Format) 第一次出现的时候是bwa比对软件的输出文件，但SAM是纯文本文件，非常巨大。</p>
+<p><code>BAM</code>格式中的b是binary的意识，是sam格式的二进制表示方式。为了减少<code>SAM</code>占用存储空间大的问题，因而将sam压缩为bam，bam文件的大小差不多只有原sam文件的1/6。</p>
+<blockquote>
+<p>SAM/BAM文件由header和record两部分组成。许多NGS组学数据的存储格式都是由header和record两部分组成。</p>
+</blockquote>
+<ul>
+<li>查看sam/bam文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">less -SN *.sam
+samtools view -h *.bam
+<span class="c1"># samtools view加上-h这个参数是为了将bam文件的header输出出来</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<h2 id="header">header</h2>
+</li>
+</ul>
+<p>是一些注释信息，以@开头，用不同的tag表示不同的信息。主要有以下：</p>
+<ol>
+<li><code>@HD</code>：说明符合标准的版本、比对序列的排列顺序；</li>
+<li><code>@SQ</code>：参考序列染色体信息，顺序必须和参考序列一致；</li>
+<li><code>@RG</code>：重要的read group信息，，通常包含测序平台，测序文库和样本ID等信息。</li>
+<li><code>@PG</code>：生成该文件的参数信息；</li>
+<li><code>@CO</code>：任意的说明信息。</li>
+</ol>
+<ul>
+<li>
+<h2 id="record">record</h2>
+</li>
+</ul>
+<p>是详细的比对部分，每一个信息都是用制表符tab分开的。</p>
+<table>
+<thead>
+<tr>
+<th>列序号</th>
+<th>名称</th>
+<th>内容描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>QNAME</td>
+<td>query name，查询序列的名称</td>
+</tr>
+<tr>
+<td>2</td>
+<td>FLAG</td>
+<td>比对的信息位，以整数来表示比对的结果，不同的数值有不同的意义，可以是不同数字的组合</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RNAME</td>
+<td>Reference name，参考序列的染色体名称</td>
+</tr>
+<tr>
+<td>4</td>
+<td>POS</td>
+<td>比对位置，从对应染色体的第一位开始往后算</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MAPQ</td>
+<td>Mapping Quality，数字越大，特异性越高。但值为255是指比对质量不可用</td>
+</tr>
+<tr>
+<td>6</td>
+<td>CIGAR</td>
+<td>Compact Idiosyncratic Gapped Alignment Report，比对信息字符串，以参考序列为基础，使用数字加字母表示比对结果</td>
+</tr>
+<tr>
+<td>7</td>
+<td>RNEXT</td>
+<td>配对read所比对的染色体，（仅pair read测序的数据才有）。双末端测序中下一个reads比对的参考系列的名称，如果没有则用*表示，如果和前一个reads比对到同一个参考序列则用=表示</td>
+</tr>
+<tr>
+<td>8</td>
+<td>PNEXT</td>
+<td>配对read所比对的位置，（仅pair read测序的数据才有）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>TLEN</td>
+<td>插入片段长度（仅pair read测序的数据才有）插入片段长度（仅pair read测序的数据才有）</td>
+</tr>
+<tr>
+<td>10</td>
+<td>SEQ</td>
+<td>read序列</td>
+</tr>
+<tr>
+<td>11</td>
+<td>QUAL</td>
+<td>read的质量值，格式同FASTQ一样</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Metadata</td>
+<td>12列以后都是metadata，一般会包括RG信息，Missmatch信息，二次比对信息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>flag信息</li>
+</ul>
+<p>77 = 000001001101 = 1 + 4 + 8 +64，这样就得到了这个FLAG包含的意思：PE read，read比对不上参考序列，它的配对read也同样比不上参考序列，它是read1。</p>
+<table>
+<thead>
+<tr>
+<th>FLAG十进制</th>
+<th>二进制</th>
+<th>十六进制</th>
+<th>内容描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>000000000001</td>
+<td>0x1</td>
+<td>代表的是pair-end测序</td>
+</tr>
+<tr>
+<td>2</td>
+<td>000000000010</td>
+<td>0x2</td>
+<td>代表正常比对，如果是PE测序，还代表两条read之间的比对距离没有明显偏离插入片段长度</td>
+</tr>
+<tr>
+<td>4</td>
+<td>000000000100</td>
+<td>0x4</td>
+<td>该read没有比对到参考序列</td>
+</tr>
+<tr>
+<td>8</td>
+<td>000000001000</td>
+<td>0x8</td>
+<td>PE的另一条配对的read没有比对到参考序列</td>
+</tr>
+<tr>
+<td>16</td>
+<td>000000010000</td>
+<td>0x10</td>
+<td>反向互补后比对到参考序列，意思是比对到负链</td>
+</tr>
+<tr>
+<td>32</td>
+<td>000000100000</td>
+<td>0x20</td>
+<td>PE测序的另一条配对的read反向互补后比对到参考序列</td>
+</tr>
+<tr>
+<td>64</td>
+<td>000001000000</td>
+<td>0x40</td>
+<td>PE测序的read1</td>
+</tr>
+<tr>
+<td>128</td>
+<td>000010000000</td>
+<td>0x80</td>
+<td>PE测序的read2</td>
+</tr>
+<tr>
+<td>256</td>
+<td>000100000000</td>
+<td>0x100</td>
+<td>二次比对，该read在基因组上比对了多个位置，当前比对位置是最佳位置，通常需要过滤到，但在某些分析场景中是很有用的信息</td>
+</tr>
+<tr>
+<td>512</td>
+<td>001000000000</td>
+<td>0x200</td>
+<td>低于过滤阈值</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>010000000000</td>
+<td>0x400</td>
+<td>PCR重复序列（测序文库的构建过程）或光学重复（测序过程中），可以被标记并过滤掉</td>
+</tr>
+<tr>
+<td>2048</td>
+<td>100000000000</td>
+<td>0x800</td>
+<td>这条read可能存在嵌合，这个比对的部分知识来自其中的一部分序列</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CIGAR信息</li>
+</ul>
+<p>比如3S6M1P1I4M，前三个碱基被剪切去除了，然后6个比对上了，然后打开了一 个缺口，有一个碱基插入，最后是4个比对上了，是按照顺序的。</p>
+<p><img src="/images/Data%20File%20Format%20%7C%20sam%20and%20bam/image-20201116160853924.png" alt="image-20201116160853924"></p>
+<ul>
+<li>MAPQ信息</li>
+</ul>
+<p>read比对到参考序列上这个位置的可靠程度，用错误比对到该位置的概率值（转化为Phred scale）来描述：-10logP{错比概率} 。因此MAPQ（mapping quality）值大于30就意味着错比概率低于0.001（千分之一），这个值也是我们衡量read比对质量的一个重要因子。</p>
+<ul>
+<li>metadata信息</li>
+</ul>
+<p>同的BAM文件中后面记录metadata的列是不固定的，在不同的处理软件中输出时也会有所不同，我们也可以依据实际的情况增删不同的metadata信息。</p>
+<p><strong>使用samtools view查看BAM文件</strong></p>
+<p>BAM文件由于是特殊的二进制格式，因此没办法通过文本的形式直接打开，要用samtools的view功能在终端上进行查看（上文也已经说到这里在进行系统补充），如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ samtools view in.bam
+</code></pre></td></tr></table>
+</div>
+</div><p>如果不想从头开始看，希望快速地跳转到基因组的其它位置上，比如chr22染色体，那么可以先用samtools index生成BAM文件的索引(如果已经有索引文件则不需该步骤)，然后这样操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ samtools index in.bam  # 生成in.bam的索引文件in.bam.bai
+$ samtools view in.bam chr22            # 跳转到chr22染色体
+$ samtools view in.bam chr22:16050103   # 跳转到chr22:16050103位置
+$ samtools view in.bam chr22:16050103-16050103  # 只查看该位置
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>IGV或者samtools tview查看比对情况</strong></p>
+<p>以上，我基本上列举了我们会在终端上如何查看BAM文件的几个最常用操作。但如果你想更直观查看的BAM文件，IGV是目前最好的一个选择，但仅适合于文件还比较小的情况</p>
+<p><a href="https://www.jianshu.com/p/56be6092063a">相关资料</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">liyu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-17 17:15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/data-file-format-bed/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Data File Formats | bed</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/data-file-format-fasta-and-fastq/">
+            <span class="next-text nav-default">Data File Formats | fasta and fastq</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liyucarp@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yulicarp" class="iconfont icon-github" title="github"></a>
+  <a href="https://yulicarp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>liyu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
